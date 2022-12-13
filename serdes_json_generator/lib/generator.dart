@@ -1,6 +1,5 @@
 import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
-import 'package:analyzer/dart/element/type.dart';
 import 'package:build/build.dart';
 import 'package:collection/collection.dart';
 import 'package:recase/recase.dart';
@@ -33,7 +32,7 @@ class SerdesJsonGenerator extends GeneratorForAnnotation<SerdesJson> {
       );
     }
 
-    if (element.isEnum) {
+    if (element is EnumElement) {
       return _generateEnum(element, annotation);
     } else {
       return _generateClass(element, annotation);
